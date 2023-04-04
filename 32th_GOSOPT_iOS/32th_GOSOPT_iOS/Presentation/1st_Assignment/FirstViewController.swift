@@ -42,6 +42,7 @@ final class FirstViewController: UIViewController {
         button.backgroundColor = .black
         button.layer.cornerRadius = 10
         button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.gray, for: .disabled)
         button.titleLabel?.font = .boldSystemFont(ofSize: 18)
         button.addTarget(self,
                          action: #selector(presentButtonTapped),
@@ -55,6 +56,7 @@ final class FirstViewController: UIViewController {
         button.backgroundColor = .black
         button.layer.cornerRadius = 10
         button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.gray, for: .disabled)
         button.titleLabel?.font = .boldSystemFont(ofSize: 18)
         button.addTarget(self,
                          action: #selector(pushButtonTapped),
@@ -66,6 +68,8 @@ final class FirstViewController: UIViewController {
         super.viewDidLoad()
         
         setStyle()
+        setButtonUI()
+        setTextField()
         setLayout()
     }
 }
@@ -74,6 +78,16 @@ private extension FirstViewController {
     
     func setStyle() {
         view.backgroundColor = .white
+    }
+    
+    private func setButtonUI(){
+        [presentButton, pushButton].forEach{
+            $0.isEnabled = false
+        }
+    }
+    
+    private func setTextField() {
+        self.nameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
     
     func setLayout() {
@@ -131,5 +145,11 @@ private extension FirstViewController {
     @objc
     func pushButtonTapped() {
         pushToSecondViewController()
+    }
+    
+    @objc
+    func textFieldDidChange(sender: UITextField) {
+        self.presentButton.isEnabled = self.nameTextField.hasText
+        self.pushButton.isEnabled = self.nameTextField.hasText
     }
 }
