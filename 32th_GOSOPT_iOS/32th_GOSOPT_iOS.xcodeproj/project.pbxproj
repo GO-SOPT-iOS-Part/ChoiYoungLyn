@@ -16,6 +16,7 @@
 		694DF72C29DC664600F0E13E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694DF72B29DC664600F0E13E /* SecondViewController.swift */; };
 		694DF73029DC7C8F00F0E13E /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694DF72F29DC7C8F00F0E13E /* UITextField+.swift */; };
 		694DF73229DC7EF300F0E13E /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694DF73129DC7EF300F0E13E /* UILabel+.swift */; };
+		694DF73629DC927500F0E13E /* ImageLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694DF73529DC927500F0E13E /* ImageLiterals.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		694DF72B29DC664600F0E13E /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		694DF72F29DC7C8F00F0E13E /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		694DF73129DC7EF300F0E13E /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		694DF73529DC927500F0E13E /* ImageLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiterals.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				694DF72929DC60E700F0E13E /* StringLiterals.swift */,
+				694DF73529DC927500F0E13E /* ImageLiterals.swift */,
 			);
 			path = Literal;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				694DF73029DC7C8F00F0E13E /* UITextField+.swift in Sources */,
 				694DF70A29DC5D5400F0E13E /* AppDelegate.swift in Sources */,
 				694DF72A29DC60E700F0E13E /* StringLiterals.swift in Sources */,
+				694DF73629DC927500F0E13E /* ImageLiterals.swift in Sources */,
 				694DF73229DC7EF300F0E13E /* UILabel+.swift in Sources */,
 				694DF72C29DC664600F0E13E /* SecondViewController.swift in Sources */,
 				694DF70C29DC5D5400F0E13E /* SceneDelegate.swift in Sources */,

@@ -19,6 +19,12 @@ final class FirstViewController: UIViewController {
         return label
     }()
     
+    private lazy var lineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .gray
+        return view
+    }()
+    
     private let nameTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = I18N.first_assignment.namePlaceholder
@@ -71,7 +77,7 @@ private extension FirstViewController {
     }
     
     func setLayout() {
-        [nameLabel, nameTextField,
+        [nameLabel, lineView, nameTextField,
          presentButton, pushButton].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
@@ -81,7 +87,12 @@ private extension FirstViewController {
                                      nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
                                      nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)])
         
-        NSLayoutConstraint.activate([nameTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20),
+        NSLayoutConstraint.activate([lineView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20),
+                                     lineView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+                                     lineView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+                                     lineView.heightAnchor.constraint(equalToConstant: 1)])
+        
+        NSLayoutConstraint.activate([nameTextField.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 20),
                                      nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
                                      nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
                                      nameTextField.heightAnchor.constraint(equalToConstant: 48)])
@@ -90,7 +101,7 @@ private extension FirstViewController {
                                      presentButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
                                      presentButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
                                      presentButton.heightAnchor.constraint(equalToConstant: 48)])
-        
+
         NSLayoutConstraint.activate([pushButton.topAnchor.constraint(equalTo: presentButton.bottomAnchor, constant: 20),
                                      pushButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
                                      pushButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
