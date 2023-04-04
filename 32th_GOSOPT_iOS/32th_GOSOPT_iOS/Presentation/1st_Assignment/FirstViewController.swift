@@ -72,6 +72,11 @@ final class FirstViewController: UIViewController {
         setTextField()
         setLayout()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        resetTextField()
+    }
 }
 
 private extension FirstViewController {
@@ -88,6 +93,10 @@ private extension FirstViewController {
     
     private func setTextField() {
         self.nameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+    }
+    
+    private func resetTextField() {
+        nameTextField.text?.removeAll()
     }
     
     func setLayout() {
@@ -115,7 +124,7 @@ private extension FirstViewController {
                                      presentButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
                                      presentButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
                                      presentButton.heightAnchor.constraint(equalToConstant: 48)])
-
+        
         NSLayoutConstraint.activate([pushButton.topAnchor.constraint(equalTo: presentButton.bottomAnchor, constant: 20),
                                      pushButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
                                      pushButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
