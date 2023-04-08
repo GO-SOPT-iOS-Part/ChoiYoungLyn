@@ -19,7 +19,7 @@ final class FirstViewController: UIViewController {
         return label
     }()
     
-    private lazy var lineView: UIView = {
+    private let lineView: UIView = {
         let view = UIView()
         view.backgroundColor = .gray
         return view

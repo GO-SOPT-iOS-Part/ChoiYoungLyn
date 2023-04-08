@@ -17,7 +17,7 @@ final class SecondViewController: UIViewController {
         return label
     }()
     
-    private lazy var myImageView: UIImageView = {
+    private let myImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = ImageLiterals.first_assignment.myImage
         imageView.layer.cornerRadius = 5
