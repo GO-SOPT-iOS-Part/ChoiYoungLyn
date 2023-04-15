@@ -21,6 +21,15 @@
 		6913927429EB1D7700C80BDB /* MakeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913927329EB1D7700C80BDB /* MakeAlert.swift */; };
 		6913927729EB1D9500C80BDB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6913927629EB1D9500C80BDB /* SnapKit */; };
 		6913927A29EB1EF200C80BDB /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 6913927929EB1EF200C80BDB /* Then */; };
+		6913927C29EB1F7500C80BDB /* StringLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913927B29EB1F7500C80BDB /* StringLiterals.swift */; };
+		6913927E29EB1F9900C80BDB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913927D29EB1F9900C80BDB /* UIView+.swift */; };
+		6913928029EB1FA500C80BDB /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913927F29EB1FA500C80BDB /* UITextField+.swift */; };
+		6913928229EB1FB800C80BDB /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913928129EB1FB800C80BDB /* UIButton+.swift */; };
+		6913928429EB1FD600C80BDB /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913928329EB1FD600C80BDB /* String+.swift */; };
+		6913928629EB1FEA00C80BDB /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913928529EB1FEA00C80BDB /* UIViewController+.swift */; };
+		6913928829EB204000C80BDB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913928729EB204000C80BDB /* LoginViewController.swift */; };
+		6913928A29EB205000C80BDB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913928929EB205000C80BDB /* WelcomeViewController.swift */; };
+		6913928C29EB206100C80BDB /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913928B29EB206100C80BDB /* NickNameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +47,15 @@
 		6913926F29EB1D4500C80BDB /* ImageLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiterals.swift; sourceTree = "<group>"; };
 		6913927129EB1D5500C80BDB /* FontLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLiterals.swift; sourceTree = "<group>"; };
 		6913927329EB1D7700C80BDB /* MakeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAlert.swift; sourceTree = "<group>"; };
+		6913927B29EB1F7500C80BDB /* StringLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLiterals.swift; sourceTree = "<group>"; };
+		6913927D29EB1F9900C80BDB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		6913927F29EB1FA500C80BDB /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		6913928129EB1FB800C80BDB /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		6913928329EB1FD600C80BDB /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		6913928529EB1FEA00C80BDB /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		6913928729EB204000C80BDB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6913928929EB205000C80BDB /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		6913928B29EB206100C80BDB /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +150,7 @@
 				6913926D29EB1D0800C80BDB /* ColorLiterals.swift */,
 				6913926F29EB1D4500C80BDB /* ImageLiterals.swift */,
 				6913927129EB1D5500C80BDB /* FontLiterals.swift */,
+				6913927B29EB1F7500C80BDB /* StringLiterals.swift */,
 			);
 			path = Literals;
 			sourceTree = "<group>";
@@ -158,6 +177,11 @@
 		6913926329EB1B5D00C80BDB /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				6913927D29EB1F9900C80BDB /* UIView+.swift */,
+				6913927F29EB1FA500C80BDB /* UITextField+.swift */,
+				6913928129EB1FB800C80BDB /* UIButton+.swift */,
+				6913928329EB1FD600C80BDB /* String+.swift */,
+				6913928529EB1FEA00C80BDB /* UIViewController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -165,6 +189,9 @@
 		6913926429EB1B7500C80BDB /* LoginScene */ = {
 			isa = PBXGroup;
 			children = (
+				6913928729EB204000C80BDB /* LoginViewController.swift */,
+				6913928929EB205000C80BDB /* WelcomeViewController.swift */,
+				6913928B29EB206100C80BDB /* NickNameViewController.swift */,
 			);
 			path = LoginScene;
 			sourceTree = "<group>";
@@ -252,11 +279,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				6913927429EB1D7700C80BDB /* MakeAlert.swift in Sources */,
+				6913928229EB1FB800C80BDB /* UIButton+.swift in Sources */,
+				6913928629EB1FEA00C80BDB /* UIViewController+.swift in Sources */,
 				6913927229EB1D5500C80BDB /* FontLiterals.swift in Sources */,
+				6913928029EB1FA500C80BDB /* UITextField+.swift in Sources */,
 				6913924829EB191A00C80BDB /* AppDelegate.swift in Sources */,
 				6913927029EB1D4500C80BDB /* ImageLiterals.swift in Sources */,
+				6913927E29EB1F9900C80BDB /* UIView+.swift in Sources */,
+				6913928429EB1FD600C80BDB /* String+.swift in Sources */,
 				6913926E29EB1D0800C80BDB /* ColorLiterals.swift in Sources */,
+				6913928C29EB206100C80BDB /* NickNameViewController.swift in Sources */,
+				6913927C29EB1F7500C80BDB /* StringLiterals.swift in Sources */,
+				6913928829EB204000C80BDB /* LoginViewController.swift in Sources */,
 				6913924A29EB191A00C80BDB /* SceneDelegate.swift in Sources */,
+				6913928A29EB205000C80BDB /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
