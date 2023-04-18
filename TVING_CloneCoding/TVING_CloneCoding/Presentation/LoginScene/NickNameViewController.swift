@@ -36,6 +36,11 @@ final class NickNameViewController: UIViewController {
         setLayout()
         addBottomCheetGesture()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showBottomSheetWithAnimation()
+    }
 }
 
 // MARK: - Extensions
@@ -88,7 +93,7 @@ private extension NickNameViewController {
         bottomSheetView.addSubviews(nicknameLabel, nickNameTextField, nickNameSaveButton)
         
         bottomSheetView.snp.makeConstraints {
-            $0.top.equalTo(view.snp.bottom)
+            $0.bottom.equalToSuperview().inset(-(screenHeight / 2))
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(screenHeight / 2)
         }
@@ -140,9 +145,7 @@ private extension NickNameViewController {
         
         switch sender.state {
         case .changed:
-            if viewTranslation.y < 0 {
-                
-            } else {
+            if viewTranslation.y > 0 {
                 UIView.animate(withDuration: 0.1, animations: {
                     self.view.backgroundColor = .clear
                     self.view.transform = CGAffineTransform(translationX: 0, y: self.viewTranslation.y)
@@ -176,15 +179,17 @@ extension NickNameViewController {
     }
     
     func showBottomSheetWithAnimation() {
+        bottomSheetView.snp.updateConstraints { $0.bottom.equalToSuperview() }
         UIView.animate(withDuration: 0.8) {
             self.view.backgroundColor = UIColor(white: 0, alpha: 0.5)
-            self.bottomSheetView.transform = CGAffineTransform(translationX: 0, y: -self.bottomSheetView.frame.height)
+            self.view.layoutIfNeeded()
         }
     }
     
     func hideBottomSheetWithAnimation() {
+        bottomSheetView.snp.updateConstraints { $0.bottom.equalToSuperview().inset(-(screenHeight / 2)) }
         UIView.animate(withDuration: 0.8) {
-            self.bottomSheetView.transform = .identity
+            self.view.layoutIfNeeded()
         } completion: { _ in
             self.view.backgroundColor = .clear
             self.dismiss(animated: false)

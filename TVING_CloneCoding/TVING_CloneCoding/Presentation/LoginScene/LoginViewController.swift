@@ -301,9 +301,7 @@ private extension LoginViewController {
             guard let self else { return }
             self.username = text
         }
-        self.present(nicknameViewController, animated: false) {
-            nicknameViewController.showBottomSheetWithAnimation()
-        }
+        self.present(nicknameViewController, animated: false)
     }
     
     @objc
@@ -332,9 +330,9 @@ extension LoginViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 0
-        self.idClearButton.isHidden = true
-        self.pwClearButton.isHidden = true
-        self.securityButton.isHidden = true
+        [idClearButton, pwClearButton, securityButton].forEach{
+            $0.isHidden = true
+        }
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
