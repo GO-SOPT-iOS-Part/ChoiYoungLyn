@@ -124,6 +124,7 @@ private extension NickNameViewController {
         }
         else {
             makeAlert(title: I18N.NickName.inValiNicknameMessage, message: I18N.NickName.inValidNicknameSubmessage)
+            self.nickNameSaveButton.shakedButton()
         }
     }
     

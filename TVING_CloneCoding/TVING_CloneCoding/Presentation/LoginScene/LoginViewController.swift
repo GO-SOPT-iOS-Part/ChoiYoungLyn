@@ -317,6 +317,7 @@ private extension LoginViewController {
         }
         else {
             makeAlert(title: I18N.Login.inValidIdMessage, message: I18N.Login.inValidIdSubmessage)
+            self.loginButton.shakedButton()
         }
     }
 }

@@ -42,5 +42,16 @@ extension UIButton {
         )
         setAttributedTitle(attributedString, for: .normal)
     }
+    
+    func shakedButton() {
+        self.transform = CGAffineTransform(translationX: 10, y: 0)
+        UIView.animate(withDuration: 0.3,
+                       delay: 0,
+                       usingSpringWithDamping: 0.2,
+                       initialSpringVelocity: 1,
+                       options: [.curveEaseInOut]) {
+            self.transform = .identity
+        }
+    }
 }
 
