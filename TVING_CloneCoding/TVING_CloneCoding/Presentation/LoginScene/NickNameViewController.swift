@@ -20,7 +20,6 @@ final class NickNameViewController: UIViewController {
     
     private let screenHeight = UIScreen.main.bounds.height
     var viewTranslation = CGPoint(x: 0, y: 0)
-    var viewVelocity = CGPoint(x: 0, y: 0)
     
     private let bottomSheetView = UIView()
     private let nicknameLabel =  UILabel()
@@ -140,10 +139,7 @@ private extension NickNameViewController {
     // MARK: - @objc Methods
     
     @objc func moveBottomSheetWithGesture(_ sender: UIPanGestureRecognizer) {
-        
         viewTranslation = sender.translation(in: bottomSheetView)
-        viewVelocity = sender.velocity(in: bottomSheetView)
-        
         switch sender.state {
         case .changed:
             if viewTranslation.y > 0 {

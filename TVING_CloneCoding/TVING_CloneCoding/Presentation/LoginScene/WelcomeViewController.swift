@@ -84,7 +84,7 @@ private extension WelcomeViewController {
     
 }
 
-extension WelcomeViewController{
+extension WelcomeViewController { 
     func dataBind(text: String) {
         welcomeLabel.text = text + I18N.Welcome.welcomeMessage
     }
