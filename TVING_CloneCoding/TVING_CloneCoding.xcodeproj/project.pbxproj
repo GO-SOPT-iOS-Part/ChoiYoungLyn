@@ -30,6 +30,12 @@
 		6913928829EB204000C80BDB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913928729EB204000C80BDB /* LoginViewController.swift */; };
 		6913928A29EB205000C80BDB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913928929EB205000C80BDB /* WelcomeViewController.swift */; };
 		6913928C29EB206100C80BDB /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913928B29EB206100C80BDB /* NickNameViewController.swift */; };
+		6943804729F81EA20015E858 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6943804629F81EA20015E858 /* BaseViewController.swift */; };
+		6943804929F8206D0015E858 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6943804829F8206D0015E858 /* BaseView.swift */; };
+		6943804B29F820C40015E858 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6943804A29F820C40015E858 /* MyPageViewController.swift */; };
+		6943804D29F822AF0015E858 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6943804C29F822AF0015E858 /* UIImage+.swift */; };
+		6943805029F8268A0015E858 /* UITableViewRegisterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6943804F29F8268A0015E858 /* UITableViewRegisterable.swift */; };
+		6943805229F827320015E858 /* getClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6943805129F827320015E858 /* getClassName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +62,12 @@
 		6913928729EB204000C80BDB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6913928929EB205000C80BDB /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		6913928B29EB206100C80BDB /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
+		6943804629F81EA20015E858 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		6943804829F8206D0015E858 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		6943804A29F820C40015E858 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		6943804C29F822AF0015E858 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		6943804F29F8268A0015E858 /* UITableViewRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewRegisterable.swift; sourceTree = "<group>"; };
+		6943805129F827320015E858 /* getClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getClassName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +122,7 @@
 		6913925C29EB19B100C80BDB /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				6943804E29F826490015E858 /* Protocols */,
 				6913925F29EB1A1800C80BDB /* SupportingFiles */,
 				6913926029EB1A2700C80BDB /* Literals */,
 				6913925D29EB19BF00C80BDB /* Resources */,
@@ -131,7 +144,9 @@
 		6913925E29EB19D800C80BDB /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				6943804529F81E830015E858 /* Common */,
 				6913926429EB1B7500C80BDB /* LoginScene */,
+				6943804129F81D7F0015E858 /* MyPageScene */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -170,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				6913927329EB1D7700C80BDB /* MakeAlert.swift */,
+				6943805129F827320015E858 /* getClassName.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -182,6 +198,7 @@
 				6913928129EB1FB800C80BDB /* UIButton+.swift */,
 				6913928329EB1FD600C80BDB /* String+.swift */,
 				6913928529EB1FEA00C80BDB /* UIViewController+.swift */,
+				6943804C29F822AF0015E858 /* UIImage+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -194,6 +211,55 @@
 				6913928B29EB206100C80BDB /* NickNameViewController.swift */,
 			);
 			path = LoginScene;
+			sourceTree = "<group>";
+		};
+		6943804129F81D7F0015E858 /* MyPageScene */ = {
+			isa = PBXGroup;
+			children = (
+				6943804329F81DF70015E858 /* VC */,
+				6943804229F81D8F0015E858 /* Views */,
+				6943804429F81DFF0015E858 /* Cell */,
+			);
+			path = MyPageScene;
+			sourceTree = "<group>";
+		};
+		6943804229F81D8F0015E858 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6943804329F81DF70015E858 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				6943804A29F820C40015E858 /* MyPageViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		6943804429F81DFF0015E858 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		6943804529F81E830015E858 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				6943804829F8206D0015E858 /* BaseView.swift */,
+				6943804629F81EA20015E858 /* BaseViewController.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		6943804E29F826490015E858 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				6943804F29F8268A0015E858 /* UITableViewRegisterable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,8 +345,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6913927429EB1D7700C80BDB /* MakeAlert.swift in Sources */,
+				6943804B29F820C40015E858 /* MyPageViewController.swift in Sources */,
 				6913928229EB1FB800C80BDB /* UIButton+.swift in Sources */,
 				6913928629EB1FEA00C80BDB /* UIViewController+.swift in Sources */,
+				6943804929F8206D0015E858 /* BaseView.swift in Sources */,
 				6913927229EB1D5500C80BDB /* FontLiterals.swift in Sources */,
 				6913928029EB1FA500C80BDB /* UITextField+.swift in Sources */,
 				6913924829EB191A00C80BDB /* AppDelegate.swift in Sources */,
@@ -289,10 +357,14 @@
 				6913928429EB1FD600C80BDB /* String+.swift in Sources */,
 				6913926E29EB1D0800C80BDB /* ColorLiterals.swift in Sources */,
 				6913928C29EB206100C80BDB /* NickNameViewController.swift in Sources */,
+				6943805229F827320015E858 /* getClassName.swift in Sources */,
 				6913927C29EB1F7500C80BDB /* StringLiterals.swift in Sources */,
 				6913928829EB204000C80BDB /* LoginViewController.swift in Sources */,
+				6943804729F81EA20015E858 /* BaseViewController.swift in Sources */,
 				6913924A29EB191A00C80BDB /* SceneDelegate.swift in Sources */,
 				6913928A29EB205000C80BDB /* WelcomeViewController.swift in Sources */,
+				6943805029F8268A0015E858 /* UITableViewRegisterable.swift in Sources */,
+				6943804D29F822AF0015E858 /* UIImage+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
