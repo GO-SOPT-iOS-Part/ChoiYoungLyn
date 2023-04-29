@@ -55,7 +55,7 @@ private extension LoginViewController {
         view.backgroundColor = .tvingBlack
         
         beforeButton.do {
-            $0.setImage(ImageLiterals.Login.beforeBtn, for: .normal)
+            $0.setImage(ImageLiterals.Common.beforeBtn, for: .normal)
         }
         
         loginLabel.do {

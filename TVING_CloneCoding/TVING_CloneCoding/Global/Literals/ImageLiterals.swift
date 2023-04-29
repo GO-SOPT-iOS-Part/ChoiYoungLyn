@@ -27,6 +27,7 @@ struct ImageLiterals {
         static var cashIcon: UIImage { .load(name: "icn_cash") }
         static var jtbcImg: UIImage { .load(name: "img_jtbc") }
         static var tvnImg: UIImage { .load(name: "img_tvn") }
+        static var tvnjtbcImg: UIImage { .load(name: "img_tvnjtbc") }
         static var detailBtn: UIImage { .load(name: "btn_detail") }
     }
     
