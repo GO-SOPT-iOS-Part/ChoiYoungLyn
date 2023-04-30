@@ -13,7 +13,10 @@ import Then
 final class LoginViewController: UIViewController {
     
     // MARK: - Properties
-    var username: String = ""
+    
+    typealias UserName = String
+    
+    var username: UserName = ""
     
     private lazy var beforeButton = UIButton()
     private let loginLabel = UILabel()
