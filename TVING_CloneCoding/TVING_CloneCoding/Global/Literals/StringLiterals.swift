@@ -36,4 +36,18 @@ struct I18N {
         static let inValiNicknameMessage = "닉네임 형식이 올바르지 않습니다."
         static let inValidNicknameSubmessage = "다시 입력해주세요."
     }
+    
+    struct MyPage {
+        static let nickName = "닉네임이뭘까요?"
+        static let profileChangeButtonTitle = "프로필 전환"
+        static let ticket = "나의 이용권"
+        static let cash = "티빙캐시"
+        static let noTicket = "사용중인 이용권이 없습니다."
+        static let myCash = "0"
+        static let join1 = "이용권을 구매하고 "
+        static let join2 = " 등 인기 TV프로그램과\n다양한 영화 콘텐츠를 자유롭게 시청하세요!"
+        static let aboutUserArray = ["이용권" , "1:1 문의 내역", "예약 알림", "회원정보 수정", "프로모션 정보 수신 동의"]
+        static let aboutTvingArray = ["공지사항", "이벤트", "고객센터", "티빙 알아보기"]
+        static let logoutButtonTitle = "로그아웃"
+    }
 }
