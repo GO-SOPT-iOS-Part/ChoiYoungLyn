@@ -9,6 +9,10 @@ import Foundation
 
 struct I18N {
     
+    struct Main {
+        static let menuArray = ["홈", "실시간", "TV프로그램", "영화", "파라마운트+", "키즈"]
+    }
+    
     struct Login {
         static let tvingLogin = "TVING ID 로그인"
         static let id = "아이디"
@@ -35,6 +39,10 @@ struct I18N {
         
         static let inValiNicknameMessage = "닉네임 형식이 올바르지 않습니다."
         static let inValidNicknameSubmessage = "다시 입력해주세요."
+    }
+    
+    struct Home {
+        
     }
     
     struct MyPage {
