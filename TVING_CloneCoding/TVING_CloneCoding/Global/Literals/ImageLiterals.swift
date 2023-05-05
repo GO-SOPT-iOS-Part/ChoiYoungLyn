@@ -32,6 +32,8 @@ struct ImageLiterals {
     }
     
     struct Main {
+        static var tvingIcon: UIImage { .load(name: "icn_tving")}
+        static var tvingProfile: UIImage { .load(name: "img_TvingProfile")}
         static var dummyImg1: UIImage { .load(name: "img_1")}
         static var dummyImg2: UIImage { .load(name: "img_2")}
         static var dummyImg3: UIImage { .load(name: "img_3")}
