@@ -31,11 +31,15 @@ final class MyPageViewController: BaseViewController {
 private extension MyPageViewController {
     
     func setNavigationUI() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: ImageLiterals.Common.beforeBtn, style: .plain, target: self, action: nil)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: ImageLiterals.Common.beforeBtn, style: .plain, target: self, action: #selector(backButtonTapped))
         let notification = navigationItem.setRightButtonUI(self, imageName: UIImage(systemName: "bell"))
         let setting = navigationItem.setRightButtonUI(self, imageName: UIImage(systemName: "gearshape"))
         let spacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         spacer.width = 9
         navigationItem.rightBarButtonItems = [setting, spacer, notification]
+    }
+    
+    @objc func backButtonTapped() {
+        self.navigationController?.popViewController(animated: false)
     }
 }
