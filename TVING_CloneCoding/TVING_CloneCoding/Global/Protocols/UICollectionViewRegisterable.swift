@@ -37,3 +37,18 @@ extension UICollectionHeaderViewRegisterable where Self: UICollectionReusableVie
     }
 }
 
+protocol UICollectionFooterViewRegisterable {
+    static var isFromNib: Bool { get }
+    static func register(target: UICollectionView)
+}
+
+extension UICollectionFooterViewRegisterable where Self: UICollectionReusableView {
+    static func register(target: UICollectionView) {
+        if self.isFromNib {
+            target.register(UINib(nibName: Self.className, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: Self.className)
+        } else {
+            target.register(Self.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: Self.className)
+        }
+    }
+}
+
