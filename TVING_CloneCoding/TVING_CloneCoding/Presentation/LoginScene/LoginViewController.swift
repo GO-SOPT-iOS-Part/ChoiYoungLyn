@@ -13,7 +13,10 @@ import Then
 final class LoginViewController: UIViewController {
     
     // MARK: - Properties
-    var username: String = ""
+    
+    typealias UserName = String
+    
+    var username: UserName = ""
     
     private lazy var beforeButton = UIButton()
     private let loginLabel = UILabel()
@@ -55,7 +58,7 @@ private extension LoginViewController {
         view.backgroundColor = .tvingBlack
         
         beforeButton.do {
-            $0.setImage(ImageLiterals.Login.beforeBtn, for: .normal)
+            $0.setImage(ImageLiterals.Common.beforeBtn, for: .normal)
         }
         
         loginLabel.do {
