@@ -10,6 +10,7 @@ import UIKit
 protocol UITableViewRegisterable {
     static var isFromNib: Bool { get }
     static func register(target: UITableView)
+    static func dequeueReusableCell(tableView: UITableView, indexPath: IndexPath) -> Self
 }
 
 extension UITableViewRegisterable where Self: UITableViewCell {
@@ -17,14 +18,20 @@ extension UITableViewRegisterable where Self: UITableViewCell {
         if self.isFromNib {
           target.register(UINib(nibName: Self.className, bundle: nil), forCellReuseIdentifier: Self.className)
         } else {
-            target.register(Self.self, forCellReuseIdentifier: Self.className)
+            target.register(self, forCellReuseIdentifier: Self.className)
         }
+    }
+    
+    static func dequeueReusableCell(tableView: UITableView, indexPath: IndexPath) -> Self {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Self.className, for: indexPath) as? Self else { fatalError()}
+        return cell
     }
 }
 
 protocol UITableViewHeaderFooterRegisterable {
     static var isFromNib: Bool { get }
     static func register(target: UITableView)
+    static func dequeueReusableHeaderFooterView(tableView: UITableView) -> Self
 }
 
 extension UITableViewHeaderFooterRegisterable where Self: UITableViewHeaderFooterView {
@@ -32,7 +39,12 @@ extension UITableViewHeaderFooterRegisterable where Self: UITableViewHeaderFoote
         if self.isFromNib {
           target.register(UINib(nibName: Self.className, bundle: nil), forHeaderFooterViewReuseIdentifier: Self.className)
         } else {
-          target.register(Self.self, forHeaderFooterViewReuseIdentifier: Self.className)
+          target.register(self, forHeaderFooterViewReuseIdentifier: Self.className)
         }
+    }
+    
+    static func dequeueReusableHeaderFooterView(tableView: UITableView) -> Self {
+        guard let headerfooterView = tableView.dequeueReusableHeaderFooterView(withIdentifier: Self.className) as? Self else { fatalError()}
+        return headerfooterView
     }
 }

@@ -17,20 +17,8 @@ final class JoinView: BaseView {
     private let joinLabel = UILabel()
     private let logoImg = NSTextAttachment()
     private lazy var detailButton = UIButton()
-
-    // MARK: - Life Cycles
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-    }
-    
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Life Cycles
+    // MARK: - Function
     
     override func setUI() {
         self.backgroundColor = .tvingGray5

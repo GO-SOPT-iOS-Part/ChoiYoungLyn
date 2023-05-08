@@ -19,10 +19,6 @@ final class HomeViewController: BaseViewController {
         self.view = homeView
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func setUI() {
         self.navigationController?.navigationBar.isHidden = true;
     }

@@ -57,7 +57,7 @@ extension MyPageTableView{
 extension MyPageTableView: UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return AboutSection.allCases.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -94,8 +94,7 @@ extension MyPageTableView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MyPageTableViewCell.className, for: indexPath) as? MyPageTableViewCell else { return UITableViewCell() }
-        
+        let cell = MyPageTableViewCell.dequeueReusableCell(tableView: tableView, indexPath: indexPath)
         let sectionType = SectionType.allCases[indexPath.section]
         switch sectionType {
         case .aboutUser:
@@ -110,7 +109,7 @@ extension MyPageTableView: UITableViewDataSource {
         let sectionType = SectionType.allCases[section]
         switch sectionType {
         case .aboutUser:
-            guard let profileView = tableView.dequeueReusableHeaderFooterView(withIdentifier: MyPageHeaderView.className) as? MyPageHeaderView else { return UITableViewHeaderFooterView() }
+            let profileView = MyPageHeaderView.dequeueReusableHeaderFooterView(tableView: tableView)
             return profileView
         case .aboutTving:
             return nil
@@ -121,10 +120,10 @@ extension MyPageTableView: UITableViewDataSource {
         let sectionType = SectionType.allCases[section]
         switch sectionType {
         case .aboutUser:
-            guard let lineView = tableView.dequeueReusableHeaderFooterView(withIdentifier: LineFooterView.className) as? LineFooterView else { return UITableViewHeaderFooterView() }
+            let lineView = LineFooterView.dequeueReusableHeaderFooterView(tableView: tableView)
             return lineView
         case .aboutTving:
-            guard let logoutView = tableView.dequeueReusableHeaderFooterView(withIdentifier: MyPageFooterView.className) as? MyPageFooterView else { return UITableViewHeaderFooterView() }
+            let logoutView = MyPageFooterView.dequeueReusableHeaderFooterView(tableView: tableView)
             return logoutView
         }
     }

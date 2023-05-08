@@ -176,6 +176,6 @@ extension MainViewController: UIPageViewControllerDataSource, UIPageViewControll
               let currentIndex = page
             .firstIndex(of: currentVC) else { return }
         currentPage = currentIndex
-        print(currentIndex)
     }
+   
 }

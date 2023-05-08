@@ -119,7 +119,6 @@ extension HomeView {
         section.visibleItemsInvalidationHandler = { items, contentOffset, environment in
             let currentPage = Int(max(0, round(contentOffset.x / environment.container.contentSize.width)))
             PageControlCollectionReusableView().posterPageControl.currentPage = currentPage
-            print(currentPage)
         }
         section.boundarySupplementaryItems = [footer]
         return section
@@ -231,7 +230,7 @@ extension HomeView: UICollectionViewDelegate {
 
 extension HomeView: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 4
+        return AboutSection.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -252,15 +251,15 @@ extension HomeView: UICollectionViewDataSource {
         let sectionType = SectionType.allCases[indexPath.section]
         switch sectionType {
         case .poster:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PosterCollectionViewCell.className, for: indexPath) as? PosterCollectionViewCell else { return UICollectionViewCell() }
+            let cell = PosterCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.configureCell(posterDummy[indexPath.item])
             return cell
         case .mustHave, .series:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SeriesCollectionViewCell.className, for: indexPath) as? SeriesCollectionViewCell else { return UICollectionViewCell() }
+            let cell = SeriesCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.configureCell(seriesDummy[indexPath.item])
             return cell
         case .live:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LiveCollectionViewCell.className, for: indexPath) as? LiveCollectionViewCell else { return UICollectionViewCell() }
+            let cell =  LiveCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.configureCell(liveDummy[indexPath.item])
             return cell
         }
@@ -270,30 +269,18 @@ extension HomeView: UICollectionViewDataSource {
         let sectionType = SectionType.allCases[indexPath.section]
         switch sectionType {
         case .poster:
-            guard let footerView = collectionView.dequeueReusableSupplementaryView(
-                ofKind: UICollectionView.elementKindSectionFooter,
-                withReuseIdentifier: PageControlCollectionReusableView.className,
-                for: indexPath) as? PageControlCollectionReusableView else { return UICollectionReusableView() }
+            let footerView = PageControlCollectionReusableView.dequeueReusableFooterView(collectionView: collectionView, indexPath: indexPath)
             return footerView
         case .mustHave:
-            guard let headerView = collectionView.dequeueReusableSupplementaryView(
-                ofKind: UICollectionView.elementKindSectionHeader,
-                withReuseIdentifier: SectionTitleCollectionReusableView.className,
-                for: indexPath) as? SectionTitleCollectionReusableView else { return UICollectionReusableView() }
+            let headerView = SectionTitleCollectionReusableView.dequeueReusableHeaderView(collectionView: collectionView, indexPath: indexPath)
             headerView.setSectionTitle(text: "티빙에서 꼭 봐야하는 콘텐츠")
             return headerView
         case .live:
-            guard let headerView = collectionView.dequeueReusableSupplementaryView(
-                ofKind: UICollectionView.elementKindSectionHeader,
-                withReuseIdentifier: SectionTitleCollectionReusableView.className,
-                for: indexPath) as? SectionTitleCollectionReusableView else { return UICollectionReusableView() }
+            let headerView = SectionTitleCollectionReusableView.dequeueReusableHeaderView(collectionView: collectionView, indexPath: indexPath)
             headerView.setSectionTitle(text: "인기 LIVE 채널")
             return headerView
         case .series:
-            guard let headerView = collectionView.dequeueReusableSupplementaryView(
-                ofKind: UICollectionView.elementKindSectionHeader,
-                withReuseIdentifier: SectionTitleCollectionReusableView.className,
-                for: indexPath) as? SectionTitleCollectionReusableView else { return UICollectionReusableView() }
+            let headerView = SectionTitleCollectionReusableView.dequeueReusableHeaderView(collectionView: collectionView, indexPath: indexPath)
             headerView.setSectionTitle(text: "1화 무료! 파라마운트+ 인기시리즈")
             return headerView
         }
