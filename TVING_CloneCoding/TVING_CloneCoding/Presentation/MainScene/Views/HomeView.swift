@@ -19,12 +19,12 @@ final class HomeView: BaseView {
         case poster, mustHave, live, series
     }
     
-    // MARK: - UI Components
-    
     private let posterDummy = PosterDataModel.dummy()
-    private let musthaveDummy = SeriesDataModel.dummy()
-    private let liveDummy = LiveDataModel.dummy()
-    private let seriesDummy = SeriesDataModel.dummy()
+    private var musthaveData: [NowPlayingResult] = []
+    private var liveData: [PopularResult] = []
+    private var seriesData: [TopRatedResult] = []
+
+    // MARK: - UI Components
     
     private lazy var homeCollectionView = UICollectionView(frame: .zero, collectionViewLayout: self.getLayout())
     
@@ -34,6 +34,7 @@ final class HomeView: BaseView {
         super.init(frame: frame)
         
         registerCell()
+        fetchData()
     }
     
     @available(*, unavailable)
@@ -67,6 +68,7 @@ extension HomeView {
         PosterCollectionViewCell.register(target: homeCollectionView)
         PageControlCollectionReusableView.register(target: homeCollectionView)
         SectionTitleCollectionReusableView.register(target: homeCollectionView)
+        ContentsCollectionViewCell.register(target: homeCollectionView)
         SeriesCollectionViewCell.register(target: homeCollectionView)
         LiveCollectionViewCell.register(target: homeCollectionView)
     }
@@ -222,6 +224,12 @@ extension HomeView {
         section.boundarySupplementaryItems = [header]
         return section
     }
+    
+    func fetchData() {
+        getNowPlayingMovies()
+        getPopularLIVE()
+        getTopRatedMovies()
+    }
 }
 
 extension HomeView: UICollectionViewDelegate {
@@ -239,11 +247,11 @@ extension HomeView: UICollectionViewDataSource {
         case .poster:
             return posterDummy.count
         case .mustHave:
-            return musthaveDummy.count
+            return musthaveData.count
         case .live:
-            return liveDummy.count
+            return liveData.count
         case .series:
-            return seriesDummy.count
+            return seriesData.count
         }
     }
     
@@ -254,13 +262,18 @@ extension HomeView: UICollectionViewDataSource {
             let cell = PosterCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.configureCell(posterDummy[indexPath.item])
             return cell
-        case .mustHave, .series:
-            let cell = SeriesCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-            cell.configureCell(seriesDummy[indexPath.item])
+        case .mustHave:
+            let cell = ContentsCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
+            cell.configureCell(musthaveData[indexPath.item])
             return cell
         case .live:
             let cell =  LiveCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-            cell.configureCell(liveDummy[indexPath.item])
+            cell.setRankLabel(text: indexPath.item)
+            cell.configureCell(liveData[indexPath.item])
+            return cell
+        case .series:
+            let cell = SeriesCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
+            cell.configureCell(seriesData[indexPath.item])
             return cell
         }
     }
@@ -287,3 +300,47 @@ extension HomeView: UICollectionViewDataSource {
     }
 }
 
+private extension HomeView {
+
+    func getNowPlayingMovies() {
+        HomeService.shared.getNowPlayingAPI() { networkResult in
+            switch networkResult {
+            case .success(let data):
+                if let data = data as? NowPlayingEntity {
+                    self.musthaveData = data.results
+                    self.homeCollectionView.reloadData()
+                }
+            default:
+                break;
+            }
+        }
+    }
+
+    func getPopularLIVE() {
+        HomeService.shared.getPopularAPI() { networkResult in
+            switch networkResult {
+            case .success(let data):
+                if let data = data as? PopularEntity {
+                    self.liveData = data.results
+                    self.homeCollectionView.reloadData()
+                }
+            default:
+                break;
+            }
+        }
+    }
+
+    func getTopRatedMovies() {
+        HomeService.shared.getTopRatedAPI() { networkResult in
+            switch networkResult {
+            case .success(let data):
+                if let data = data as? TopRatedEntity {
+                    self.seriesData = data.results
+                    self.homeCollectionView.reloadData()
+                }
+            default:
+                break;
+            }
+        }
+    }
+}
