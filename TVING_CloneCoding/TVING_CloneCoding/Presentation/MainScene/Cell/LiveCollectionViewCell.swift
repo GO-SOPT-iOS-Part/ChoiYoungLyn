@@ -8,7 +8,10 @@
 import UIKit
 
 import SnapKit
+import Kingfisher
 import Then
+
+
 
 final class LiveCollectionViewCell: UICollectionViewCell, UICollectionViewRegisterable {
     
@@ -96,11 +99,14 @@ extension LiveCollectionViewCell {
         }
     }
     
-    func configureCell(_ livaData: LiveDataModel) {
-        liveImageView.image = livaData.image
-        rankLabel.text = "\(livaData.rank)"
-        channelLabel.text = livaData.channel
-        titleLabel.text = livaData.title
-        ratingLabel.text = "\(livaData.rating)%"
+    func configureCell(_ livaData: PopularResult) {
+        liveImageView.kf.setImage(with: URL(string: URLConstant.imgURL + livaData.posterPath))
+        channelLabel.text = "TVN"
+        titleLabel.text = livaData.originalName
+        ratingLabel.text = "\(livaData.voteAverage)%"
+    }
+    
+    func setRankLabel(text: Int) {
+        self.rankLabel.text = "\(text + 1)"
     }
 }

@@ -1,5 +1,5 @@
 //
-//  SeriesCollectionViewCell.swift
+//  ContentsCollectionViewCell.swift
 //  TVING_CloneCoding
 //
 //  Created by 최영린 on 2023/05/01.
@@ -12,8 +12,7 @@ import Kingfisher
 import Then
 
 
-
-final class SeriesCollectionViewCell: UICollectionViewCell, UICollectionViewRegisterable {
+final class ContentsCollectionViewCell: UICollectionViewCell, UICollectionViewRegisterable {
     
     static var isFromNib: Bool = false
     
@@ -38,7 +37,7 @@ final class SeriesCollectionViewCell: UICollectionViewCell, UICollectionViewRegi
 
 // MARK: - Extensions
 
-extension SeriesCollectionViewCell {
+extension ContentsCollectionViewCell {
     private func setUI() {
         posterImageView.do {
             $0.layer.cornerRadius = 3
@@ -67,8 +66,8 @@ extension SeriesCollectionViewCell {
         }
     }
     
-    func configureCell(_ seriesData: TopRatedResult) {
-        posterImageView.kf.setImage(with: URL(string: URLConstant.imgURL + seriesData.posterPath))
-        titleLabel.text = seriesData.title
+    func configureCell(_ mustHaveData: NowPlayingResult) {
+        posterImageView.kf.setImage(with: URL(string: URLConstant.imgURL + mustHaveData.posterPath))
+        titleLabel.text = mustHaveData.title
     }
 }
